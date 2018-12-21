@@ -1,0 +1,38 @@
+body{
+    background-color: rgba(94,95,102,0.32);
+
+}
+
+
+#frame{
+    position: absolute;
+    height: 780px;
+    width: 780px;
+    top:10%;
+    left:30%;
+    border: brown solid 2px;
+}
+.hex{
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    bottom: var(--currBottom);
+    left: var(--currLeft);
+    border: cadetblue solid 1px;
+}
+.hex2{
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    bottom: 2%;
+    left: 3%;
+    border: green solid 1px;
+}
+h1{
+    margin-left: 30%;
+}
+
+:root {
+    --currBottom: 0%;
+    --currLeft: 0%;
+}
