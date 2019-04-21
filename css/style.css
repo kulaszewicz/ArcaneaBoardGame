@@ -18,12 +18,13 @@ h1{
 }
 .hex{
     position: absolute;
-    width: 4%;
-    height: 4%;
+    width: var(--setSize);
+    height: var(--setSize);
     bottom: var(--currBottom);
     left: var(--currLeft);
     background-image: url("../resources/hex.png");
     background-size: cover;
+
 }
 
 .hex-img
@@ -35,4 +36,5 @@ h1{
 :root {
     --currBottom: 0%;
     --currLeft: 0%;
+    --setSize: 4%;
 }
