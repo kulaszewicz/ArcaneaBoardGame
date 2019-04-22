@@ -33,8 +33,18 @@ h1{
     height: 100%;
 }
 
+.hexEvent {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 15%;
+    background-image: var(--eventImg);
+    background-size: cover;
+}
 :root {
     --currBottom: 0%;
     --currLeft: 0%;
     --setSize: 4%;
+    --eventImg: 0
 }
