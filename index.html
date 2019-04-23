@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/Grid.css">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <meta charset="UTF-8">
-    <title>HexMap v.0.01</title>
+    <title>Arcanea the board game v.0.03</title>
 </head>
-<body>
-<h1>HexMap v.0.03</h1>
-<div id="frame">
-</div>
-</body>
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="resources/logo.png" alt="Arcanea logo" class="logo">
+                    <ul class="main-nav">
+                        <li><a href="#"><img src="resources/png/home.png" class="nav-icon"><span>home</span></a></li>
+                        <li><a href="#"><img src="resources/png/rules.png" class="nav-icon">rules</a></li>
+                        <li><a href="#"><img src="resources/png/github.png" class="nav-icon">github</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="board row">
+            <img src="resources/png/hex-ground.png" class="board-background">
+            <div id="frame"></div>
+        </div>
+    </body>
 <script type="module" src="js/hexMap2.js" ></script>
 </html>

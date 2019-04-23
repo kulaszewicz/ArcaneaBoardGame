@@ -136,6 +136,7 @@ class HexMap2 {
             curr.style.setProperty("--setSize", this.setCompassSize()[0] + "%");
             //curr.innerHTML = `${i+1} ${eventArray[i].name}`;
             currEvent.style.setProperty("--eventImg", eventArray[i].eventImg);
+            if (i===0) curr.style.animation = "glowing 1500ms infinite";
             curr.className = "hex";
             currEvent.className = "hexEvent";
             curr.appendChild(currEvent);
@@ -218,7 +219,7 @@ class HexMap2 {
 
 }
 
-const testMap = new HexMap2(2, 2, true);
+const testMap = new HexMap2(1, 2, true);
 
 testMap.generateMap();
 
