@@ -122,6 +122,28 @@ header {
     background-image: var(--eventImg);
     background-size: cover;
 }
+
+/*------------------------- */
+/* Navigation */
+/*------------------------- */
+
+#btn-dice{
+    position: absolute;
+    left: 5%;
+    top: 20%;
+}
+
+.currPosition{
+    animation: glowing 1500ms infinite;
+}
+
+.singleGlow {
+    animation: glowing 1000ms infinite;
+}
+/*------------------------- */
+/* Vars and animations */
+/*------------------------- */
+
 :root {
     --currBottom: 0%;
     --currLeft: 0%;
@@ -135,4 +157,5 @@ header {
     60% { box-shadow: 0 0 20px #c1c1c1; }
     100% { box-shadow: 0 0 -10px #c1c1c1; }
 }
+
 

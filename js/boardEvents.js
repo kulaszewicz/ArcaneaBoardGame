@@ -1,4 +1,4 @@
-export class BoardEvents {
+export default class BoardEvents {
 
     constructor(boardSize){
         this.boardSize = boardSize;

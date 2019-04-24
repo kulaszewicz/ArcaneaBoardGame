@@ -1,12 +1,8 @@
-import { BoardEvents } from "./boardEvents.js";
 
+export default class MapGeneration {
 
-class HexMap2 {
-
-    constructor(difficulty, numOfBoss, isActive) {
+    constructor(difficulty) {
         this.difficulty = difficulty;
-        this.numOfBoss = numOfBoss;
-        this.isActive = isActive;
     };
 
     HexProps = {
@@ -23,17 +19,14 @@ class HexMap2 {
         const HexCompass = this.setCompass(this.setCompassSize()[0]);
 
         const size = this.setCompassSize()[1];
-        console.log(size);
+        //console.log(size);
 
-        console.log(HexCompass);
+        //console.log(HexCompass);
 
         // Events
-        const eventArray = new BoardEvents(size).generateBoardEvents();
+        //const eventArray = new BoardEvents(size).generateBoardEvents();
 
-        this.hexNextMove(this.HexProps.moveHistory, 1, (size-1), HexCompass, eventArray);
-
-
-
+        this.hexNextMove(this.HexProps.moveHistory, 1, (size-1), HexCompass);
 
 
 
@@ -41,14 +34,19 @@ class HexMap2 {
 
         console.log(this.HexProps.stuck + " times stuck");
         console.log(this.HexProps.skips + " times skipped");
-        console.log(this.HexProps.moveHistory );
+        //console.log(this.HexProps.moveHistory );
+
+
+
     };
 
-    hexNextMove = (moveHistory, index, size, HexCompass, eventArray) => {
+    hexNextMove = (moveHistory, index, size, HexCompass) => {
 
         if (index > size) {
-            console.log("END");
-            this.drawMap(this.HexProps.moveHistory, eventArray);
+            //console.log("END");
+            //this.drawMap(this.HexProps.moveHistory, eventArray);
+
+
         }
         else {
 
@@ -69,7 +67,7 @@ class HexMap2 {
             } else {
                 cDir = HexCompass[(cDir - 1)].slice(0);
             }
-            this.hexSetMove(cDir, moveHistory, index, size, HexCompass, eventArray);
+            this.hexSetMove(cDir, moveHistory, index, size, HexCompass);
         }
 
     };
@@ -85,10 +83,10 @@ class HexMap2 {
       }
     };
 
-    hexSetMove = (cDir, moveHistory, index, size, HexCompass, eventArray) => {
+    hexSetMove = (cDir, moveHistory, index, size, HexCompass) => {
 
         if (this.HexProps.stuck >= size || this.HexProps.skips >= (size*2)){
-            this.hexMapReset(size, HexCompass, eventArray);
+            this.hexMapReset(size, HexCompass);
         } else {
 
             //console.log(cDir);
@@ -101,50 +99,28 @@ class HexMap2 {
                 //console.log(JSON.parse(JSON.stringify(this.HexCompass)));
                 this.HexProps.moveHistory.push(proposedHex);
                 index++;
-                this.hexNextMove(moveHistory, index, size, HexCompass, eventArray);
+                this.hexNextMove(moveHistory, index, size, HexCompass);
 
             } else if (this.sizeValidator(proposedHex, moveHistory, index) === false && lastDirection === 1 || lastDirection === 4 && index !== 1) {
                 //console.log("stuck");
                 this.HexProps.stuck++;
                 moveHistory.pop();
                 index--;
-                this.hexNextMove(moveHistory, index, size, HexCompass, eventArray);
+                this.hexNextMove(moveHistory, index, size, HexCompass);
             }else if (this.attachedValidator(proposedHex, moveHistory, index) === false) {
-                console.log('attached');
+                //console.log('attached');
                 moveHistory.pop();
                 index--;
-                this.hexNextMove(moveHistory, index, size, HexCompass, eventArray);
+                this.hexNextMove(moveHistory, index, size, HexCompass);
             }
             else {
                 //console.log("skip");
                 this.HexProps.skips++;
-                this.hexNextMove(moveHistory, index, size, HexCompass, eventArray);
+                this.hexNextMove(moveHistory, index, size, HexCompass);
             }
         }
     };
-
-
-    drawMap = (moveHistory, eventArray) => {
-
-        const generatedMap = moveHistory;
-        //Drawing hexes based on generated array
-        for (let i = 0; i < generatedMap.length; i++){
-            let curr = document.createElement('hex');
-            let currEvent = document.createElement('hexEvent');
-            curr.style.setProperty("--currLeft", generatedMap[i][1] + "%");
-            curr.style.setProperty("--currBottom", generatedMap[i][2] + "%");
-            curr.style.setProperty("--setSize", this.setCompassSize()[0] + "%");
-            //curr.innerHTML = `${i+1} ${eventArray[i].name}`;
-            currEvent.style.setProperty("--eventImg", eventArray[i].eventImg);
-            if (i===0) curr.style.animation = "glowing 1500ms infinite";
-            curr.className = "hex";
-            currEvent.className = "hexEvent";
-            curr.appendChild(currEvent);
-            let frame = document.getElementById("frame");
-            frame.appendChild(curr);
-        }
-
-    };
+    
 
     // Validators
 
@@ -184,12 +160,12 @@ class HexMap2 {
     };
     // Hard reset
 
-    hexMapReset = (size, HexCompass, eventArray) => {
-        console.log("HARD RESET");
+    hexMapReset = (size, HexCompass) => {
+        //console.log("HARD RESET");
         this.HexProps.stuck = 0;
         this.HexProps.skips = 0;
         this.HexProps.moveHistory = [[4,0,0]];
-        this.hexNextMove(this.HexProps.moveHistory, 1, size, HexCompass, eventArray);
+        this.hexNextMove(this.HexProps.moveHistory, 1, size, HexCompass);
     };
 
     setCompassSize = () => {
@@ -219,7 +195,4 @@ class HexMap2 {
 
 }
 
-const testMap = new HexMap2(1, 2, true);
-
-testMap.generateMap();
 
