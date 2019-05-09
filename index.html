@@ -14,20 +14,40 @@
         <header>
             <nav>
                 <div class="row">
-                    <img src="resources/logo.png" alt="Arcanea logo" class="logo">
+                    <img src="resources/png/logo.png" alt="Arcanea logo" class="logo">
                     <ul class="main-nav">
                         <li><a href="#"><img src="resources/png/home.png" class="nav-icon"><span>home</span></a></li>
                         <li><a href="#"><img src="resources/png/rules.png" class="nav-icon">rules</a></li>
-                        <li><a href="#"><img src="resources/png/github.png" class="nav-icon">github</a></li>
+                        <li><a href="https://github.com/kulaszewicz/ArcaneaBoardGame" target="_blank"><img src="resources/png/github.png" class="nav-icon">github</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <div class="board row">
-            <button id="btn-dice">Throw dice</button>
-            <img src="resources/png/hex-ground.png" class="board-background">
-            <div id="frame"></div>
-        </div>
+        <section class="section-game">
+            <div class="row">
+                <div class="row">
+                    <div class="col span-1-of-2 boardTrapeze" id="diceBoard">
+                        <img src="resources/png/board-assets/t1.png" class="t-class">
+                    </div>
+                    <div class="col span-1-of-2 boardTrapeze" id ="cardBoard">
+                        <img src="resources/png/board-assets/t3.png" class="t-class">
+                    </div>
+                </div>
+                <div class="board row">
+                    <img src="resources/png/board-assets/hex-ground.png" class="board-background">
+                    <div id="frame"></div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-2 boardTrapeze" id ="actionBoard">
+                        <img src="resources/png/board-assets/t2.png" class="t-class">
+                        <button class="btn" id="btn-dice">Throw dice</button>
+                    </div>
+                    <div class="col span-1-of-2 boardTrapeze" id ="eventBoard">
+                        <img src="resources/png/board-assets/t4.png" class="t-class">
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 <script type="module" src="js/ArcaneaApp.js" ></script>
 </html>

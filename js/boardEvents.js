@@ -14,21 +14,21 @@ export default class BoardEvents {
     // FIELD TYPES ARRAY OF OBJECTS
 
     fieldTypes = [
-        {name: "Start", frequency() {return 1}, bound: 0, eventImg:'url("../resources/start.png")'},
+        {name: "Start", frequency() {return 1}, bound: 0, eventImg:'url("../resources/png/board-assets/events/start.png")'},
 
         {name: "Empty", frequency() {return (this.emptyFields)}, bound: 0 , eventImg:0},
 
-        {name: "Fight", frequency() {return (0.3*(this.rowl))}, bound: 0 , eventImg:'url("../resources/fight.png")'},
+        {name: "Fight", frequency() {return (0.3*(this.rowl))}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/fight.png")'},
 
-        {name: "Decision", frequency() {return (0.3*(this.rowl))}, bound: 0 , eventImg:'url("../resources/decision.png")'},
+        {name: "Decision", frequency() {return (0.3*(this.rowl))}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/decision.png")'},
 
-        {name: "Trap", frequency() {return (0.15*(this.rowl))}, bound: 0 , eventImg:'url("../resources/trap.png")'},
+        {name: "Trap", frequency() {return (0.15*(this.rowl))}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/trap.png")'},
 
-        {name: "Treasure", frequency() {return (0.125*(this.rowl))}, bound: 0 , eventImg:'url("../resources/treasure.png")'},
+        {name: "Treasure", frequency() {return (0.125*(this.rowl))}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/treasure.png")'},
 
-        {name: "Shortcut", frequency() {return (0.125*(this.rowl))}, bound: 0 , eventImg:'url("../resources/shortcut.png")'},
+        {name: "Shortcut", frequency() {return (0.125*(this.rowl))}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/shortcut.png")'},
 
-        {name: "Boss", frequency() {return 1}, bound: 0 , eventImg:'url("../resources/boss.png")'},
+        {name: "Boss", frequency() {return 1}, bound: 0 , eventImg:'url("../resources/png/board-assets/events/boss.png")'},
     ];
 
     eventArray = [];

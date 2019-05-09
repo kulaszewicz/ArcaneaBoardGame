@@ -37,7 +37,7 @@ class ArcaneaApp {
         generatedView.drawMap(); // DRAW MAP SHAPE AND EVENTS
 
         addGlow(userNavigation.startingPosition); // GLOW STARTING POSITION
-    }
+    };
 
 }
 
